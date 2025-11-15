@@ -3,8 +3,8 @@
 
    for dir_name in /proc/[0-9]*
    do
-	   pid=$(basename "$pid_dir")
-	   name=$(cat "$pid_dir/comm" 2>/dev/null)
+	   pid=$(basename "$dir_name")
+	   name=$(cat "$dir_name/comm" 2>/dev/null)
 	   if [[ $name == *bash* ]] 
 	   then
            
