@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#a bash script that displays process id without using ps command
+
+   for dir_name in /proc/[0-9]*
+   do
+	   pid=$(basename "$pid_dir")
+	   name=$(cat "$pid_dir/comm" 2>/dev/null)
+	   if [[ $name == *bash* ]] 
+	   then
+           
+		   echo "$pid $name"
+	   fi
+   done
