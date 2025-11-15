@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
-#a Bash script that stops 4-to_infinity_and_beyond process without using kill
+# Stop 4-to_infinity_and_beyond process without using kill
 
-  pkill -f "4-to_infinity_and_beyond"
+for pid_dir in /proc/[0-9]*; do
+    pid=$(basename "$pid_dir")
+    
+    if [[ -r "$pid_dir/comm" ]]; then
+        read -r name < "$pid_dir/comm"
+        if [[ $name == *4-to_infinity_and_beyond* ]]; then
+            echo 15 > "$pid_dir/signal" 2>/dev/null
+        fi
+    fi
+done
