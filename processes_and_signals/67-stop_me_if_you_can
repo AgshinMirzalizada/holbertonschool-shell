@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Kill all 7-highlander processes
+
+for pid in $(pgrep -x 7-highlander); do
+    kill -SIGTERM "$pid"
+done
+
