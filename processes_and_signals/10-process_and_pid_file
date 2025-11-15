@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script saves its PID to /var/run/myscript.
+#pid, prints "To infinity and beyond" every 2 seconds indefinitely, 
+#handles signals SIGTERM and SIGINT by printing custom messages, 
+#and cleans up the PID file and exits when receiving SIGQUIT or SIGTERM.
+
+	echo $$ > /var/run/myscript.pid
+	trap 'echo "I hate the kill command"' SIGTERM
+	trap 'echo "Y U no love me?!"' SIGINT
+	trap 'rm -f /var/run/myscript.pid; exit' SIGQUIT SIGTERM
+	while true 
+ 	do
+    		echo "To infinity and beyond"
+    		sleep 2
+	done
