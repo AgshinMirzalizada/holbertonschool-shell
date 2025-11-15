@@ -2,8 +2,6 @@
 # Stop 4-to_infinity_and_beyond process without using kill
 
 for pid_dir in /proc/[0-9]*; do
-    pid=$(basename "$pid_dir")
-    
     if [[ -r "$pid_dir/comm" ]]; then
         read -r name < "$pid_dir/comm"
         if [[ $name == *4-to_infinity_and_beyond* ]]; then
@@ -11,3 +9,4 @@ for pid_dir in /proc/[0-9]*; do
         fi
     fi
 done
+
