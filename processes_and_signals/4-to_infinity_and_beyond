@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#a bash script prints infinity and beyond every 2 seconds
+
+
+
+    while [ 6 -le 7 ]
+    do
+	    echo "To infinity and beyond"
+	    sleep 2
+    done
